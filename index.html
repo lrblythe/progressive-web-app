@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Giftr: a gift planning app" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <title>PWA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="./js/web-component.js" type="module"></script>
+    <script src="./js/app.js" type="module"></script>
+  </head>
+  <body class="home">
+    <header>
+      <p class="back-button-slot">
+        <span class="back material-symbols-outlined"> chevron_left </span>
+      </p>
+      <h1>giftr</h1>
+      <p class="add-button-slot">
+        <span class="add material-symbols-outlined"> add_circle </span>
+      </p>
+    </header>
+    <main id="home">
+      <h2 id="giftedPeople">Gifted People</h2>
+      <div class="saved-names">
+        <div class="user-message"></div>
+        <ul class="list-of-names"></ul>
+      </div>
+    </main>
+    <main id="gift-list">
+      <h2 id="giftIdeasHeader" aria-label="name of person gift list">
+        gift list
+      </h2>
+      <div class="saved-gifts">
+        <ul class="list-of-gifts"></ul>
+      </div>
+    </main>
+    <main id="add-person">
+      <h2 id="addPersonHeader">Add Person</h2>
+      <div class="add-person-error-message"></div>
+      <form class="add-person-form" action="#" id="addPersonForm">
+        <div class="name-and-dob">
+          <div class="name-input">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="dob">
+            <label for="dob">Birthday:</label>
+            <input type="date" id="dob" required />
+          </div>
+        </div>
+        <div class="save-delete-cancel">
+          <button
+            class="btn"
+            id="savePerson"
+            type="submit"
+            data-id="savePerson"
+          >
+            <span class="material-symbols-outlined"> save </span>
+          </button>
+          <button class="btn" id="cancelPerson" data-id="cancelPerson">
+            <span class="material-symbols-outlined"> cancel </span>
+          </button>
+          <button class="btn" id="deletePerson" data-id="deletePerson">
+            <span class="material-symbols-outlined"> delete </span>
+          </button>
+        </div>
+      </form>
+    </main>
+    <main id="add-gift">
+      <h2 id="addOrEditGift">Add/Edit Gift for</h2>
+      <div class="add-gift-error-message"></div>
+      <form class="add-gift-form" action="#">
+        <div class="gift-idea-store-url">
+          <div class="gift-input">
+            <label for="gift-idea">Gift Idea:</label>
+            <input type="text" id="gift-idea" name="gift-idea" />
+          </div>
+          <div class="store-input">
+            <label for="store">Store/Location:</label>
+            <input type="text" id="store" name="store" />
+          </div>
+          <div class="url-input">
+            <label for="url">URL:</label>
+            <input type="text" id="url" name="url" />
+          </div>
+        </div>
+        <div class="save-cancel">
+          <button class="btn" id="saveGift" data-id="saveGift">
+            <span class="material-symbols-outlined"> save </span>
+          </button>
+          <button class="btn" id="cancelGift" data-id="cancelGift">
+            <span class="material-symbols-outlined"> cancel </span>
+          </button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

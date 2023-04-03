@@ -1,0 +1,410 @@
+:root {
+  --header: #99775c;
+  --homebg: #eae7dd;
+  --hometxt: #222;
+  --editButton: #e3a458;
+  --saveButton: #7db47d;
+  --deleteButton: #aa3939;
+  --cancelButton: #e9c834;
+  --giftButton: #d4aec5;
+  --focus: #71a9f7;
+  --fonts: "Open Sans", sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 1.424rem;
+  font-family: var(--fonts);
+  font-weight: 300;
+}
+body {
+  overflow-x: hidden;
+  /* hide screen off to the sides */
+}
+body.home {
+  background-color: var(--homebg);
+  color: var(--hometxt);
+}
+body.add-person {
+  background-color: var(--homebg);
+  color: var(--hometxt);
+}
+body.edit-person {
+  background-color: var(--homebg);
+  color: var(--hometxt);
+}
+body.gift-list {
+  background-color: var(--homebg);
+  color: var(--hometxt);
+}
+body.add-gift {
+  background-color: var(--homebg);
+  color: var(--hometxt);
+}
+
+/* Header Styles */
+
+header {
+  min-height: 4rem;
+  background-color: var(--header);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+header span {
+  font-size: 3rem;
+  line-height: 3rem;
+  height: 3rem;
+  width: 3rem;
+  display: grid;
+  place-content: center;
+  background: rgb(215, 226, 226);
+  background: radial-gradient(
+    circle,
+    rgba(215, 226, 226, 1) 0%,
+    rgba(158, 161, 176, 1) 100%
+  );
+  border: 0.1rem solid black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+header h1 {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  color: #222;
+  font-weight: 800;
+}
+header p {
+  display: grid;
+  place-content: center;
+  color: #222;
+  width: 4rem;
+  height: 1px;
+}
+
+header .back {
+  font-size: 2rem;
+}
+
+header .add {
+  font-size: 2rem;
+}
+
+/* Main Styles */
+
+main {
+  min-height: 100vh;
+  display: block; /* default */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  opacity: 0;
+  /* right: 0; because of position absolute */
+  /* transform: translateX(-200%);
+  transition: transform 0.8s linear, opacity 0.6s linear; */
+  transform: translateX(-200%);
+  transition: transform 0.5s linear, opacity 0.5s linear;
+  padding: 5rem 1rem 1rem 1rem; /* 5rem to leave space for the header */
+}
+
+h2 {
+  font-weight: 600;
+  margin: 0.5rem 0 1rem;
+}
+
+/* <li> box styling */
+
+main .list-of-names .name-box {
+  list-style-type: none;
+}
+
+.name-box,
+.gift-box {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #ddd;
+}
+
+.name-and-birthday,
+.gift-name-and-store {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+}
+
+.edit-and-gift,
+.edit-and-delete {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+/* Button Styling */
+
+.btn {
+  display: inline-flex;
+  color: #000;
+  border-radius: 0.25em;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 3rem;
+  padding: 0.25rem;
+  border: 0.1rem solid black;
+}
+
+.btn .material-symbols-outlined {
+  font-size: 1.5rem;
+}
+
+/* used to hide the delete button on Add Person Screen */
+.none {
+  display: none;
+}
+
+/* Input Styling */
+input {
+  padding: 0.5rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.25rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+*:focus-visible {
+  outline: 0.125rem solid var(--focus);
+  outline-offset: 0.125rem;
+}
+
+.name-input label,
+.dob label,
+.gift-input label,
+.store-input label,
+.url-input label {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  width: fit-content;
+  border-bottom: 0.05rem solid #000;
+}
+
+/* HOME screen styles */
+
+.edit-and-gift #edit-person,
+.edit-and-delete #edit-gift {
+  background-color: var(--editButton);
+}
+
+.edit-and-gift #gift {
+  margin-left: 0.5rem;
+  background-color: var(--giftButton);
+}
+
+.edit-and-delete #delete-gift {
+  background-color: var(--deleteButton);
+}
+
+.name-box .name {
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+/* EDIT PERSON + ADD GIFT screen styles */
+
+.name-and-dob,
+.gift-idea-store-url {
+  margin-bottom: 1rem;
+}
+
+.save-delete-cancel,
+.save-cancel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.save-delete-cancel button,
+.save-cancel button {
+  margin-bottom: 1rem;
+  margin: 0.5rem;
+}
+
+.save-delete-cancel #savePerson,
+.save-cancel #saveGift {
+  background-color: var(--saveButton);
+}
+.save-delete-cancel #cancelPerson,
+.save-cancel #cancelGift {
+  background-color: var(--cancelButton);
+}
+.save-delete-cancel #deletePerson {
+  background-color: var(--deleteButton);
+}
+
+.name-input,
+.dob,
+.gift-input,
+.store-input,
+.url-input {
+  display: flex;
+  flex-direction: column;
+}
+
+/* GIFT LIST styles */
+
+.edit-and-delete #edit-gift {
+  border: 0.1rem solid black;
+}
+
+.edit-and-delete #delete-gift {
+  margin-left: 0.5rem;
+}
+
+.gift-name-and-store .gift-name {
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+/* No Data User Messages */
+
+.no-data-message {
+  font-size: 1.5rem;
+  color: var(--header);
+}
+
+/* Navigation Related */
+
+body.home main#home,
+body.add-person main#add-person,
+body.gift-list main#gift-list,
+body.add-gift main#add-gift,
+body.edit-person main#edit-person {
+  /* display: block; */
+  transition: transform 0.7s linear, opacity 0.4s linear;
+  transition-delay: 0.2s;
+  transform: translateX(0);
+  opacity: 1;
+}
+/* Home Screen */
+body.home header .back {
+  display: none;
+}
+body.home header .add {
+  display: grid;
+}
+/* Gift List Screen */
+body.gift-list header .back {
+  display: grid;
+}
+body.gift-list header .add {
+  display: grid;
+}
+/* Add Person Screen */
+body.add-person header .back {
+  display: grid;
+}
+body.add-person header .add {
+  display: none;
+}
+/* Edit Person Screen */
+body.edit-person header .back {
+  display: grid;
+}
+body.edit-person header .add {
+  display: none;
+}
+/* Add Gift Screen */
+body.add-gift header .back {
+  display: grid;
+}
+body.add-gift header .add {
+  display: none;
+}
+
+/* Responsive Text Sizing and Media Queries */
+@media only screen and (min-width: 45em) {
+  /* html {
+    font-size: 1.728rem;
+  } */
+
+  header h1 {
+    font-size: 2.074rem;
+  }
+
+  main {
+    padding: 5rem 5rem 1rem 5rem;
+  }
+
+  .add-person-form,
+  .add-gift-form {
+    display: flex;
+    align-items: center;
+  }
+
+  .save-delete-cancel,
+  .save-cancel {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+  }
+
+  .name-and-dob,
+  .gift-idea-store-url {
+    flex-grow: 2;
+  }
+
+  .btn .material-symbols-outlined {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  /* html {
+    font-size: 1.953rem;
+  } */
+  header h1 {
+    font-size: 2.441rem;
+  }
+
+  main {
+    padding: 6rem 8rem 1rem 8rem;
+  }
+}
+
+/*
+60em: 
+1.25
+1.563
+1.953
+2.441
+3.052
+
+45em: 
+1.2
+1.44
+1.728
+2.074
+2.488
+
+mobile: 
+1.125
+1.266
+1.424
+1.602
+1.802
+
+
+
+*/
